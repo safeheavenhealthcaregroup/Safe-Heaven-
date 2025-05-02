@@ -128,6 +128,88 @@
 <button class="view-btn" onclick="window.location.href='/products'">View All Products</button>
 
 <body>
+    <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f3f4f6;
+    }
+    .title {
+      text-align: center;
+      font-size: 2.25rem;
+      font-weight: bold;
+      margin: 2rem 0 1rem;
+      color: #1f2937;
+    }
+    .slider-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+    .card {
+      flex: 0 0 auto;
+      min-width: 320px;
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .card-header {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      padding: 1.5rem;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4f46e5;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .features {
+      list-style: none;
+      padding: 0 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .features li {
+      margin-bottom: 0.75rem;
+      color: #374151;
+      display: flex;
+      align-items: center;
+    }
+    .features li::before {
+      content: '✓';
+      color: #10b981;
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+    .card button {
+      margin: 0 1.5rem 1.5rem;
+      padding: 0.75rem;
+      background: #4f46e5;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .card button:hover {
+      background: #4338ca;
+    }
+    </style>
 
   <h2 class="title">Premium Subscriptions</h2>
   <div class="slider-container">
