@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safe Haven Health Care - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; }
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 999;
+    }
+    .logo-container { display: flex; align-items: center; gap: 10px; }
+    .logo-container img { height: 40px; }
+    .logo { font-size: 1.8rem; font-weight: 700; color: #0077cc; letter-spacing: 1px; }
+    nav a { margin: 0 1rem; text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #0077cc; }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, #e6f3ff, #ffffff);
+    }
+    .hero img { max-width: 500px; width: 100%; border-radius: 8px; }
+    .hero-text { max-width: 600px; }
+    .hero-text h1 { font-size: 3rem; margin-bottom: 1rem; color: #004e89; }
+    .hero-text p { font-size: 1.1rem; margin-bottom: 2rem; color: #555; }
+    .hero-text button { padding: 0.75rem 1.5rem; font-size: 1rem; background: #0077cc; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+    .hero-text button:hover { background: #005fa3; }
+    .section { padding: 3rem 2rem; text-align: center; }
+    .section h2 { color: #0077cc; margin-bottom: 1rem; font-size: 2rem; }
+    .section p { max-width: 800px; margin: 0 auto 2rem; color: #666; line-height: 1.6; }
+    .category-cards, .product-cards { display: flex; overflow-x: auto; gap: 1rem; padding: 1rem 0; justify-content: flex-start; }
+    .card {
+      min-width: 200px;
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .card img {
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+    }
+    .card h3 { margin-top: 0.5rem; color: #0077cc; text-align: center; font-size: 1.1rem; }
+    button.view-btn {
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #004e89;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button.view-btn:hover { background-color: #003f6e; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="https://via.placeholder.com/40" alt="Logo">
+      <div class="logo">Safe Haven Health Care</div>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="aboutus.html">About    us</a>
+    </nav>
+  </header>  <section class="hero">
+    <div class="hero-text">
+      <h1>Your Health, Our Mission</h1>
+      <p>Providing premium healthcare equipment and personalized services right at your doorstep. Experience care like never before.</p>
+      <button onclick="window.location.href='#services'">Learn More</button>
+    </div>
+    <img src="https://via.placeholder.com/500x350" alt="Healthcare Illustration">
+  </section>  <section id="services" class="section">
+    <h2>Doctor Specializations</h2>
+    <p>Choose your desired healthcare service from our expert categories. Click on a category to see products.</p>
+    <div class="category-cards">
+      <div class="card" onclick="filterProducts('physio')"><img src="https://via.placeholder.com/60?text=Physio" alt="Physiotherapy"><h3>Physiotherapy</h3></div>
+      <div class="card" onclick="filterProducts('dental')"><img src="https://via.placeholder.com/60?text=Dental" alt="Dentistry"><h3>Dentistry</h3></div>
+      <div class="card" onclick="filterProducts('cardio')"><img src="https://via.placeholder.com/60?text=Cardio" alt="Cardiology"><h3>Cardiology</h3></div>
+      <div class="card" onclick="filterProducts('ortho')"><img src="https://via.placeholder.com/60?text=Ortho" alt="Orthopedics"><h3>Orthopedics</h3></div>
+      <div class="card" onclick="filterProducts('derma')"><img src="https://via.placeholder.com/60?text=Derma" alt="Dermatology"><h3>Dermatology</h3></div>
+      <div class="card" onclick="filterProducts('neuro')"><img src="https://via.placeholder.com/60?text=Neuro" alt="Neurology"><h3>Neurology</h3></div>
+      <div class="card" onclick="filterProducts('ent')"><img src="https://via.placeholder.com/60?text=ENT" alt="ENT"><h3>ENT</h3></div>
+    </div>
+  </section>  <section id="products" class="section">
+    <h2>Featured Products</h2>
+    <p>Each specialization includes curated equipment and solutions.</p>
+    <div class="product-cards" id="productList">
+      <div class="card physio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Rehab Kit</h3></div>
+      <div class="card physio"><img src="https://via.placeholder.com/7200x120" alt="Product" /><h3>Stretching Tools</h3></div>
+      <div class="card physio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Exercise Bands</h3></div><div class="card dental"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Tooth Mirror</h3></div>
+  <div class="card dental"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Floss Pack</h3></div>
+  <div class="card dental"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Scaler Set</h3></div>
+
+  <div class="card cardio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Heart Monitor</h3></div>
+  <div class="card cardio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>BP Kit</h3></div>
+  <div class="card cardio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>ECG Tabs</h3></div>
+
+  <div class="card ortho"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Knee Support</h3></div>
+  <div class="card ortho"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Crutches</h3></div>
+  <div class="card ortho"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Shoulder Brace</h3></div>
+</div>
+<button class="view-btn" onclick="window.location.href='/products'">View All Products</button>
+
+<body>
+
+  <h2 class="title">Premium Subscriptions</h2>
+  <div class="slider-container">
+    <div class="card">
+      <div class="card-header">Starter Plan</div>
+      <p class="price">₹499/mo</p>
+      <ul class="features">
+        <li>Basic consultations</li>
+        <li>Email support</li>
+        <li>1 user account</li>
+      </ul>
+      <button>Choose Starter</button>
+    </div>
+    <div class="card">
+      <div class="card-header">Standard Plan</div>
+      <p class="price">₹999/mo</p>
+      <ul class="features">
+        <li>Standard services</li>
+        <li>Priority email support</li>
+        <li>Up to 3 users</li>
+      </ul>
+      <button>Choose Standard</button>
+    </div>
+    <div class="card">
+      <div class="card-header">Advanced Plan</div>
+      <p class="price">₹1,999/mo</p>
+      <ul class="features">
+        <li>Advanced diagnostics</li>
+        <li>Phone support</li>
+        <li>Up to 5 users</li>
+      </ul>
+      <button>Choose Advanced</button>
+    </div>
+    <div class="card">
+      <div class="card-header">Premium Plan</div>
+      <p class="price">₹2,999/mo</p>
+      <ul class="features">
+        <li>All advanced features</li>
+        <li>Dedicated consultant</li>
+        <li>Unlimited users</li>
+      </ul>
+      <button>Choose Premium</button>
+    </div>
+    <div class="card">
+      <div class="card-header">Elite Plan</div>
+      <p class="price">₹4,999/mo</p>
+      <ul class="features">
+        <li>Premium + exclusive services</li>
+        <li>Personal health manager</li>
+        <li>Enterprise support</li>
+      </ul>
+      <button>Choose Elite</button>
+    </div>
+  </div>
+
+</body>
+
+  </section>  <script>
+    function filterProducts(category) {
+      const cards = document.querySelectorAll('#productList .card');
+      cards.forEach(card => {
+        card.style.display = card.classList.contains(category) ? 'block' : 'none';
+      });
+    }
+  </script></body>
+  
+  <footer style="background: #004e89; color: #fff; padding: 3rem 2rem; font-family: 'Inter', sans-serif;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; max-width: 1200px; margin: auto;">
+    <!-- Company Info -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Safe Haven Health Care</h3>
+      <p>Empowering lives with reliable medical equipment and services. We're committed to your health and care.</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div style="flex: 1; min-width: 200px;">
+      <h4 style="margin-bottom: 1rem;">Company</h4>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li><a href="/about" style="color: #fff; text-decoration: none;">About Us</a></li>
+        <li><a href="/privacy" style="color: #fff; text-decoration: none;">Privacy Policy</a></li>
+        <li><a href="/terms" style="color: #fff; text-decoration: none;">Terms & Conditions</a></li>
+        <li><a href="/cookies" style="color: #fff; text-decoration: none;">Cookies Policy</a></li>
+        <li><a href="/feedback" style="color: #fff; text-decoration: none;">Feedback</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div style="flex: 1; min-width: 220px;">
+      <h4 style="margin-bottom: 1rem;">Contact Us</h4>
+      <p>Email: support@safehavenhealth.in</p>
+      <p>Phone: +91-9876543210</p>
+      <p>Location: 101 Medcare Avenue, New Delhi, India</p>
+    </div>
+
+    <!-- Social Media -->
+    <div style="flex: 1; min-width: 200px;">
+      <h4 style="margin-bottom: 1rem;">Follow Us</h4>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="https://instagram.com" target="_blank" style="color: #fff;" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" width="24" />
+        </a>
+        <a href="https://facebook.com" target="_blank" style="color: #fff;" title="Facebook">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" width="24" />
+        </a>
+        <a href="https://twitter.com" target="_blank" style="color: #fff;" title="Twitter">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter" width="24" />
+        </a>
+        <a href="https://youtube.com" target="_blank" style="color: #fff;" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" width="24" />
+        </a>
+        <a href="https://linkedin.com" target="_blank" style="color: #fff;" title="LinkedIn">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24" />
+        </a>
+        <a href="https://telegram.org" target="_blank" style="color: #fff;" title="Telegram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg" alt="Telegram" width="24" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #ccc;">
+    &copy; 2025 Safe Haven Health Care. All rights reserved.
+  </div>
+</footer>
+</html>
+p
