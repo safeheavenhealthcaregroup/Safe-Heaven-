@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Safe Haven Health Care</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f5f7;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      color: #20435c;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.75em;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #007B8F;
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: #007B8F;
+      font-weight: 600;
+    }
+
+    form {
+      margin-top: 30px;
+      display: grid;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button {
+      background-color: #007B8F;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005e6b;
+    }
+  </style>
+  <style>
+    /* ===== Simple Header Style ===== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Simple Header Section ===== -->
+  <header>
+    <div class="logo">Safe Heaven Health Care</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Shop</a>
+      <a href="#">About us</a>
+    </nav>
+  </header>
+
+</body>
+</head>
+<body>
+  <div class="container">
+    <h1>About Us</h1>
+
+    <p>
+      At <span class="highlight">Safe Haven Health Care</span>, we are dedicated to delivering holistic care and reliable medical solutions that support independent living and enhance quality of life.
+    </p>
+
+    <h2>Our Mission</h2>
+    <p>
+      To empower individuals through professional care, respect, and advanced health products--ensuring dignity, safety, and comfort for every client, every day.
+    </p>
+
+    <h2>Our Services</h2>
+    <ul>
+      <li><strong>Home Health Care:</strong> Skilled nursing, post-operative care, therapy, and more.</li>
+      <li><strong>Medical Equipment & Supplies:</strong> Mobility aids, hospital beds, oxygen, PPE, etc.</li>
+      <li><strong>Remote Monitoring:</strong> Smart devices connected to care providers.</li>
+      <li><strong>Pharmacy Support:</strong> Medication reminders and delivery.</li>
+      <li><strong>Nutrition & Wellness:</strong> Meal planning and supplements.</li>
+      <li><strong>Family Respite:</strong> Short-term care for family caregivers.</li>
+    </ul>
+
+    <h2>Why Safe Haven?</h2>
+    <ul>
+      <li>Certified and experienced professionals</li>
+      <li>Flexible and personalized care plans</li>
+      <li>High-quality medical-grade supplies</li>
+      <li>Integrated smart care solutions</li>
+      <li>24/7 assistance and client support</li>
+    </ul>
+
+    <h2>Contact Us</h2>
+    <p>Have questions? Fill out the form and we'll be in touch shortly.</p>
+
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contactForm">
+      <input type="hidden" name="form-name" value="contact" />
+      <p style="display:none;">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Submit Message</button>
+    </form>
+
+    <script>
+      // Fallback to Formspree if Netlify forms are not detected
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        if (!document.querySelector('input[name="form-name"]')) {
+          e.preventDefault();
+          const data = new FormData(this);
+          fetch("https://formspree.io/f/your-form-id", { // replace with your Formspree form ID
+            method: "POST",
+            headers: { 'Accept': 'application/json' },
+            body: data
+          })
+          .then(response => {
+            if (response.ok) {
+              alert("Thank you! Your message has been sent.");
+              this.reset();
+            } else {
+              alert("Oops! There was a problem sending your message.");
+            }
+          })
+          .catch(error => {
+            alert("Network error. Please try again later.");
+          });
+        }
+      });
+    </script>
+  </div>
+</body>
+
+<footer style="background: #004e89; color: #fff; padding: 3rem 2rem; font-family: 'Inter', sans-serif;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; max-width: 1200px; margin: auto;">
+    <!-- Company Info -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Safe Haven Health Care</h3>
+      <p>Empowering lives with reliable medical equipment and services. We're committed to your health and care.</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div style="flex: 1; min-width: 200px;">
+      <h4 style="margin-bottom: 1rem;">Company</h4>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li><a href="/about" style="color: #fff; text-decoration: none;">About Us</a></li>
+        <li><a href="/privacy" style="color: #fff; text-decoration: none;">Privacy Policy</a></li>
+        <li><a href="/terms" style="color: #fff; text-decoration: none;">Terms & Conditions</a></li>
+        <li><a href="/cookies" style="color: #fff; text-decoration: none;">Cookies Policy</a></li>
+        <li><a href="/feedback" style="color: #fff; text-decoration: none;">Feedback</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div style="flex: 1; min-width: 220px;">
+      <h4 style="margin-bottom: 1rem;">Contact Us</h4>
+      <p>Email: support@safehavenhealth.in</p>
+      <p>Phone: +91-9876543210</p>
+      <p>Location: 101 Medcare Avenue, New Delhi, India</p>
+    </div>
+
+    <!-- Social Media -->
+    <div style="flex: 1; min-width: 200px;">
+      <h4 style="margin-bottom: 1rem;">Follow Us</h4>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="https://instagram.com" target="_blank" style="color: #fff;" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" width="24" />
+        </a>
+        <a href="https://facebook.com" target="_blank" style="color: #fff;" title="Facebook">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" width="24" />
+        </a>
+        <a href="https://twitter.com" target="_blank" style="color: #fff;" title="Twitter">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter" width="24" />
+        </a>
+        <a href="https://youtube.com" target="_blank" style="color: #fff;" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" width="24" />
+        </a>
+        <a href="https://linkedin.com" target="_blank" style="color: #fff;" title="LinkedIn">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24" />
+        </a>
+        <a href="https://telegram.org" target="_blank" style="color: #fff;" title="Telegram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg" alt="Telegram" width="24" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #ccc;">
+    &copy; 2025 Safe Haven Health Care. All rights reserved.
+  </div>
+</footer>
+</html>
