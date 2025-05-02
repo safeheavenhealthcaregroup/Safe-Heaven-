@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f4f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p.description {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 1.05em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 12px 0 6px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    input, textarea, select {
+      padding: 12px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    .rating {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .rating label {
+      font-weight: normal;
+      margin: 0;
+      flex: 1;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    .thanks {
+      margin-top: 40px;
+      font-size: 1em;
+      text-align: center;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 30px 20px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+  
+  <style>
+    /* ===== Simple Header Style ===== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Simple Header Section ===== -->
+  <header>
+    <div class="logo">Safe Heaven Health Care</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Shop</a>
+      <a href="#">About Us</a>
+    </nav>
+  </header>
+
+</body>
+</head>
+<body>
+  <div class="container">
+    <h1>We Value Your Feedback</h1>
+    <p class="description">
+      Your input helps us improve. Please rate the following aspects and share your comments or suggestions.
+    </p>
+
+    <form action="#" method="post">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="websiteDesign">How would you rate our website design?</label>
+      <select id="websiteDesign" name="websiteDesign" required>
+        <option value="">Select rating</option>
+        <option>Excellent</option>
+        <option>Good</option>
+        <option>Average</option>
+        <option>Poor</option>
+      </select>
+
+      <label for="productQuality">How would you rate the product/service quality?</label>
+      <select id="productQuality" name="productQuality" required>
+        <option value="">Select rating</option>
+        <option>Excellent</option>
+        <option>Good</option>
+        <option>Average</option>
+        <option>Poor</option>
+      </select>
+
+      <label for="customerSupport">How was your experience with our support team?</label>
+      <select id="customerSupport" name="customerSupport">
+        <option value="">Select rating</option>
+        <option>Very Satisfied</option>
+        <option>Satisfied</option>
+        <option>Neutral</option>
+        <option>Dissatisfied</option>
+      </select>
+
+      <label for="recommend">Would you recommend us to others?</label>
+      <select id="recommend" name="recommend">
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>Maybe</option>
+        <option>No</option>
+      </select>
+
+      <label for="message">Additional Comments or Suggestions</label>
+      <textarea id="message" name="message" placeholder="Share any ideas, feedback, or issues you faced..."></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+
+    <p class="thanks">
+      Thank you for helping us improve and serve you better!
+    </p>
+  </div>
+</body>
+</html>
