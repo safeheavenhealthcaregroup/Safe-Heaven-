@@ -6,17 +6,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; }
-    header {
-      position: sticky;
-      top: 0;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      z-index: 999;
-    }
     .logo-container { display: flex; align-items: center; gap: 10px; }
     .logo-container img { height: 80px; }
     .logo { font-size: 1.8rem; font-weight: 700; color: #0077cc; letter-spacing: 1px; }
@@ -78,17 +67,60 @@
   </style>
 </head>
 <body>
+  <style>
+    /* ===== Simple Header Style ===== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Simple Header Section ===== -->
   <header>
-    <div class="logo-container">
-      <img src="https://cdn.discordapp.com/attachments/1355458205064368259/1367822667394060339/IMG-20250502-WA0003.jpg?ex=6815fba0&is=6814aa20&hm=7c39387a6a95a6a51add3859009bb6dace12c6a584a95baae2d7ef26f47c0577&" alt="Logo">
-      <div class="logo">Safe Haven Health Care</div>
-    </div>
+    <div class="logo">MyBrand</div>
     <nav>
-      <a href="#services">Services</a>
-      <a href="#products">Products</a>
-      <a href="front/about.html">About    us</a>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Shop</a>
+      <a href="#">About Us</a>
     </nav>
-  </header>  <section class="hero">
+  </header>
+
+</body>
     <div class="hero-text">
       <h1>Your Health, Our Mission</h1>
       <p>Providing premium healthcare equipment and personalized services right at your doorstep. Experience care like never before.</p>
