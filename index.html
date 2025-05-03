@@ -173,59 +173,77 @@
       font-size: 1.2rem;
       font-weight: bold;
     }
+nav {
+  display: flex;
+  gap: 24px;
+}
 
-    nav {
-      display: flex;
-      gap: 20px;
-    }
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: 500;
-    }
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
+nav a:hover::after {
+  width: 100%;
+}
 
-    .menu-toggle span {
-      height: 3px;
-      background: #ffffff;
-      margin: 4px 0;
-      width: 25px;
-    }
+/* Hamburger icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
 
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        background-color: #0057a0;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        width: 160px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-        z-index: 1000;
-      }
+.menu-toggle span {
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+  width: 25px;
+  transition: all 0.3s ease;
+}
 
-      nav a {
-        padding: 10px 0;
-        border-bottom: 1px solid #ddd;
-      }
+/* Responsive nav menu */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #0057a0;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    width: 180px;
+  }
 
-      nav.show {
-        display: flex;
-      }
+  nav.show {
+    display: flex;
+  }
 
-      .menu-toggle {
-        display: flex;
-      }
-    }
+  nav a {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
   </style>
 </head>
 <body>
