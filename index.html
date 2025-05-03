@@ -75,6 +75,86 @@
       transition: background 0.3s;
     }
     button.view-btn:hover { background-color: #003f6e; }
+        body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f3f4f6;
+    }
+    .slidetitle {
+      text-align: center;
+      font-size: 2.25rem;
+      font-weight: bold;
+      margin: 2rem 0 1rem;
+      color: #1f2937;
+    }
+    .slideslider-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .slideslider-container::-webkit-scrollbar {
+      display: none;
+    }
+    .slidecard {
+      flex: 0 0 auto;
+      min-width: 320px;
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .slidecard-header {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      padding: 1.5rem;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    .slideprice {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4f46e5;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .slidefeatures {
+      list-style: none;
+      padding: 0 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .slidefeatures li {
+      margin-bottom: 0.75rem;
+      color: #374151;
+      display: flex;
+      align-items: center;
+    }
+    .slidefeatures li::before {
+      content: '✓';
+      color: #10b981;
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+    .slidecard button {
+      margin: 0 1.5rem 1.5rem;
+      padding: 0.75rem;
+      background: #4f46e5;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .slidecard button:hover {
+      background: #4338ca;
+    }
   </style>
 </head>
 <body>
@@ -128,51 +208,51 @@
 <button class="view-btn" onclick="window.location.href='/products'">View All Products</button>
 
   <h2 class="title">Premium Subscriptions</h2>
-  <div class="slider-container">
-    <div class="card">
-      <div class="card-header">Starter Plan</div>
-      <p class="price">₹499/mo</p>
-      <ul class="features">
+  <div class="slideslider-container">
+    <div class="slidecard">
+      <div class="slidecard-header">Starter Plan</div>
+      <p class="slideprice">₹499/mo</p>
+      <ul class="slidefeatures">
         <li>Basic consultations</li>
         <li>Email support</li>
         <li>1 user account</li>
       </ul>
       <button>Choose Starter</button>
     </div>
-    <div class="card">
-      <div class="card-header">Standard Plan</div>
-      <p class="price">₹999/mo</p>
-      <ul class="features">
+    <div class="slidecard">
+      <div class="slidecard-header">Standard Plan</div>
+      <p class="slideprice">₹999/mo</p>
+      <ul class="slidefeatures">
         <li>Standard services</li>
         <li>Priority email support</li>
         <li>Up to 3 users</li>
       </ul>
       <button>Choose Standard</button>
     </div>
-    <div class="card">
-      <div class="card-header">Advanced Plan</div>
-      <p class="price">₹1,999/mo</p>
-      <ul class="features">
+    <div class="slidecard">
+      <div class="slidecard-header">Advanced Plan</div>
+      <p class="slideprice">₹1,999/mo</p>
+      <ul class="slidefeatures">
         <li>Advanced diagnostics</li>
         <li>Phone support</li>
         <li>Up to 5 users</li>
       </ul>
       <button>Choose Advanced</button>
     </div>
-    <div class="card">
-      <div class="card-header">Premium Plan</div>
-      <p class="price">₹2,999/mo</p>
-      <ul class="features">
+    <div class="slidecard">
+      <div class="slidecard-header">Premium Plan</div>
+      <p class="slideprice">₹2,999/mo</p>
+      <ul class="slidefeatures">
         <li>All advanced features</li>
         <li>Dedicated consultant</li>
         <li>Unlimited users</li>
       </ul>
       <button>Choose Premium</button>
     </div>
-    <div class="card">
-      <div class="card-header">Elite Plan</div>
-      <p class="price">₹4,999/mo</p>
-      <ul class="features">
+    <div class="slidecard">
+      <div class="slidecard-header">Elite Plan</div>
+      <p class="slideprice">₹4,999/mo</p>
+      <ul class="slidefeatures">
         <li>Premium + exclusive services</li>
         <li>Personal health manager</li>
         <li>Enterprise support</li>
