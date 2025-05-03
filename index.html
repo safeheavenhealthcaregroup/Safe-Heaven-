@@ -158,17 +158,31 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="https://via.placeholder.com/40" alt="Logo">
-      <div class="logo">Safe Haven Health Care</div>
-    </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#products">Products</a>
-      <a href="aboutus.html">About    us</a>
-    </nav>
-  </header>  <section class="hero">
+<header>
+   <div class="logo-container">
+    <img src="https://via.placeholder.com/40" alt="Logo" />
+    <div class="logo">Safe Haven Health Care</div>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav">
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="aboutus.html">About us</a>
+  </nav>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav");
+      nav.classList.toggle("show");
+    }
+  </script>
+</header>
     <div class="hero-text">
       <h1>Your Health, Our Mission</h1>
       <p>Providing premium healthcare equipment and personalized services right at your doorstep. Experience care like never before.</p>
