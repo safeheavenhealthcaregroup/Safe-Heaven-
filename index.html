@@ -3,507 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Safe Haven Health Care - Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Create User in Firestore</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    header {
-      background-color: #0057a0;
-      color: #fff;
-      padding: 10px 20px;
+      font-family: Arial, sans-serif;
+      background: #f0f4ff;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      height: 100vh;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: 600;
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
     }
 
-    .logo-container img {
-      height: 40px;
-      margin-right: 10px;
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #cce6ff;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      background: #fff;
-      margin: 4px 0;
-      width: 25px;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #0057a0;
-        padding: 10px 0;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4rem 5%;
-      background: linear-gradient(to right, #e6f3ff, #ffffff);
-    }
-
-    .hero-text {
-      flex: 1 1 300px;
-      max-width: 600px;
-      padding-right: 2rem;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: #004e89;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 2rem;
-    }
-
-    .hero-text button {
-      padding: 0.75rem 1.5rem;
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
       font-size: 1rem;
-      background: #0077cc;
+    }
+
+    button {
+      background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
     }
 
-    .hero-text button:hover {
-      background: #005fa3;
+    button:hover {
+      background-color: #0056b3;
     }
 
-    .hero img {
-      flex: 1 1 300px;
-      max-width: 100%;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-
-    .section {
-      padding: 3rem 5%;
+    #message {
+      margin-top: 15px;
       text-align: center;
     }
-
-    .section h2 {
-      color: #0077cc;
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      margin-bottom: 1rem;
-    }
-
-    .section p {
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      color: #666;
-    }
-
-    .category-cards {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-
-    .card {
-      flex: 0 0 auto;
-      min-width: 200px;
-      background: white;
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      text-align: center;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .card img {
-      height: 60px;
-      width: 60px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      color: #0077cc;
-      font-size: 1.1rem;
-    }
-    
-.slideslider-container {
-  display: flex;
-  overflow-x: auto;
-  padding: 2rem 1rem;
-  gap: 1.5rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.slideslider-container::-webkit-scrollbar {
-  display: none;
-}
-
-.slidecard {
-  flex: 0 0 auto;
-  min-width: 290px;
-  background: white;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.slidecard-header {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  padding: 1.5rem;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.slideprice {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #4f46e5;
-  margin: 1rem 0;
-  text-align: center;
-}
-
-.slidefeatures {
-  list-style: none;
-  padding: 0 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.slidefeatures li {
-  margin-bottom: 0.75rem;
-  color: #374151;
-  display: flex;
-  align-items: center;
-}
-
-.slidefeatures li::before {
-  content: '✓';
-  color: #10b981;
-  margin-right: 0.5rem;
-  font-weight: bold;
-}
-
-.slidecard button {
-  margin: 0 1.5rem 1.5rem;
-  padding: 0.75rem;
-  background: #4f46e5;
-  color: white;
-  font-weight: 600;
-  border: none;
-  border-radius: 0.75rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.slidecard button:hover {
-  background: #4338ca;
-}
-
-/* Responsive Navigation */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #0057a0;
-    padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    width: 180px;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-}
-
-  .menu-toggle {
-    display: flex;
-  }
-  
-h1 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
-}
-  
-h2 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
-}
-  
-  h3 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
-}
-  
-  h4 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
-}
-  
-p {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-}
   </style>
 </head>
 <body>
-<header>
-   <div class="logo-container">
-    <img src="https://via.placeholder.com/40" alt="Logo" />
-    <div class="logo">Safe Haven Health Care</div>
+
+  <div class="form-container">
+    <h2>Create User</h2>
+    <form id="userForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="text" id="phone" placeholder="Phone" required />
+      <select id="role">
+        <option value="patient">Patient</option>
+        <option value="staff">Staff</option>
+        <option value="owner">Owner</option>
+      </select>
+      <button type="submit">Create User</button>
+    </form>
+    <div id="message"></div>
   </div>
 
-  <div class="menu-toggle" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  <nav id="nav">
-    <a href="#services">Services</a>
-    <a href="#products">Products</a>
-    <a href="aboutus.html">About us</a>
-  </nav>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCfg46lAHvfo8RGuG1CXzww_k18Po1ubfU",
+      authDomain: "safe-heaven-health-care.firebaseapp.com",
+      projectId: "safe-heaven-health-care",
+      storageBucket: "safe-heaven-health-care.firebasestorage.app",
+      messagingSenderId: "103538999646",
+      appId: "1:103538999646:web:7df321c4ecc32f1b810fcf",
+      measurementId: "G-94J9C5655X"
+    };
 
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById("nav");
-      nav.classList.toggle("show");
-    }
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById("userForm");
+    const messageDiv = document.getElementById("message");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const role = document.getElementById("role").value;
+
+      try {
+        await addDoc(collection(db, "users"), {
+          email,
+          phone,
+          role,
+          createdAt: serverTimestamp()
+        });
+        messageDiv.innerText = "User created successfully!";
+        form.reset();
+      } catch (err) {
+        messageDiv.innerText = "Error: " + err.message;
+      }
+    });
   </script>
-</header>
-    <div class="hero-text">
-      <h1>Your Health, Our Mission</h1>
-      <p>Providing premium healthcare equipment and personalized services right at your doorstep. Experience care like never before.</p>
-      <button onclick="window.location.href='#services'">Learn More</button>
-    </div>
-    <img src="https://via.placeholder.com/500x350" alt="Healthcare Illustration">
-  </section>  <section id="services" class="section">
-    <h2>Doctor Specializations</h2>
-    <p>Choose your desired healthcare service from our expert categories. Click on a category to see products.</p>
-    <div class="category-cards">
-      <div class="card" onclick="filterProducts('physio')"><img src="https://via.placeholder.com/60?text=Physio" alt="Physiotherapy"><h3>Physiotherapy</h3></div>
-      <div class="card" onclick="filterProducts('dental')"><img src="https://via.placeholder.com/60?text=Dental" alt="Dentistry"><h3>Dentistry</h3></div>
-      <div class="card" onclick="filterProducts('cardio')"><img src="https://via.placeholder.com/60?text=Cardio" alt="Cardiology"><h3>Cardiology</h3></div>
-      <div class="card" onclick="filterProducts('ortho')"><img src="https://via.placeholder.com/60?text=Ortho" alt="Orthopedics"><h3>Orthopedics</h3></div>
-      <div class="card" onclick="filterProducts('derma')"><img src="https://via.placeholder.com/60?text=Derma" alt="Dermatology"><h3>Dermatology</h3></div>
-      <div class="card" onclick="filterProducts('neuro')"><img src="https://via.placeholder.com/60?text=Neuro" alt="Neurology"><h3>Neurology</h3></div>
-      <div class="card" onclick="filterProducts('ent')"><img src="https://via.placeholder.com/60?text=ENT" alt="ENT"><h3>ENT</h3></div>
-    </div>
-  </section>  <section id="products" class="section">
-    <h2>Featured Products</h2>
-    <p>Each specialization includes curated equipment and solutions.</p>
-    <div class="product-cards" id="productList">
-      <div class="card physio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Rehab Kit</h3></div>
-      <div class="card physio"><img src="https://via.placeholder.com/7200x120" alt="Product" /><h3>Stretching Tools</h3></div>
-      <div class="card physio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Exercise Bands</h3></div><div class="card dental"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Tooth Mirror</h3></div>
-  <div class="card dental"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Floss Pack</h3></div>
-  <div class="card dental"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Scaler Set</h3></div>
 
-  <div class="card cardio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Heart Monitor</h3></div>
-  <div class="card cardio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>BP Kit</h3></div>
-  <div class="card cardio"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>ECG Tabs</h3></div>
-
-  <div class="card ortho"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Knee Support</h3></div>
-  <div class="card ortho"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Crutches</h3></div>
-  <div class="card ortho"><img src="https://via.placeholder.com/200x120" alt="Product" /><h3>Shoulder Brace</h3></div>
-</div>
-<button class="view-btn" onclick="window.location.href='/products'">View All Products</button>
-
-  <h2 class="title">Premium Subscriptions</h2>
-  <div class="slideslider-container">
-    <div class="slidecard">
-      <div class="slidecard-header">Starter Plan</div>
-      <p class="slideprice">₹499/mo</p>
-      <ul class="slidefeatures">
-        <li>Basic consultations</li>
-        <li>Email support</li>
-        <li>1 user account</li>
-      </ul>
-      <button>Choose Starter</button>
-    </div>
-    <div class="slidecard">
-      <div class="slidecard-header">Standard Plan</div>
-      <p class="slideprice">₹999/mo</p>
-      <ul class="slidefeatures">
-        <li>Standard services</li>
-        <li>Priority email support</li>
-        <li>Up to 3 users</li>
-      </ul>
-      <button>Choose Standard</button>
-    </div>
-    <div class="slidecard">
-      <div class="slidecard-header">Advanced Plan</div>
-      <p class="slideprice">₹1,999/mo</p>
-      <ul class="slidefeatures">
-        <li>Advanced diagnostics</li>
-        <li>Phone support</li>
-        <li>Up to 5 users</li>
-      </ul>
-      <button>Choose Advanced</button>
-    </div>
-    <div class="slidecard">
-      <div class="slidecard-header">Premium Plan</div>
-      <p class="slideprice">₹2,999/mo</p>
-      <ul class="slidefeatures">
-        <li>All advanced features</li>
-        <li>Dedicated consultant</li>
-        <li>Unlimited users</li>
-      </ul>
-      <button>Choose Premium</button>
-    </div>
-    <div class="slidecard">
-      <div class="slidecard-header">Elite Plan</div>
-      <p class="slideprice">₹4,999/mo</p>
-      <ul class="slidefeatures">
-        <li>Premium + exclusive services</li>
-        <li>Personal health manager</li>
-        <li>Enterprise support</li>
-      </ul>
-      <button>Choose Elite</button>
-    </div>
-  </div>
-  </section>  <script>
-    function filterProducts(category) {
-      const cards = document.querySelectorAll('#productList .card');
-      cards.forEach(card => {
-        card.style.display = card.classList.contains(category) ? 'block' : 'none';
-      });
-    }
-  </script></body>
-  
-  <footer style="background: #004e89; color: #fff; padding: 3rem 2rem; font-family: 'Inter', sans-serif;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; max-width: 1200px; margin: auto;">
-    <!-- Company Info -->
-    <div style="flex: 1; min-width: 250px;">
-      <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Safe Haven Health Care</h3>
-      <p>Empowering lives with reliable medical equipment and services. We're committed to your health and care.</p>
-    </div>
-
-    <!-- Navigation Links -->
-    <div style="flex: 1; min-width: 200px;">
-      <h4 style="margin-bottom: 1rem;">Company</h4>
-      <ul style="list-style: none; padding: 0; line-height: 2;">
-        <li><a href="/about" style="color: #fff; text-decoration: none;">About Us</a></li>
-        <li><a href="/privacy" style="color: #fff; text-decoration: none;">Privacy Policy</a></li>
-        <li><a href="/terms" style="color: #fff; text-decoration: none;">Terms & Conditions</a></li>
-        <li><a href="/cookies" style="color: #fff; text-decoration: none;">Cookies Policy</a></li>
-        <li><a href="/feedback" style="color: #fff; text-decoration: none;">Feedback</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact Info -->
-    <div style="flex: 1; min-width: 220px;">
-      <h4 style="margin-bottom: 1rem;">Contact Us</h4>
-      <p>Email: support@safehavenhealth.in</p>
-      <p>Phone: +91-9876543210</p>
-      <p>Location: 101 Medcare Avenue, New Delhi, India</p>
-    </div>
-
-    <!-- Social Media -->
-    <div style="flex: 1; min-width: 200px;">
-      <h4 style="margin-bottom: 1rem;">Follow Us</h4>
-      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        <a href="https://instagram.com" target="_blank" style="color: #fff;" title="Instagram">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" width="24" />
-        </a>
-        <a href="https://facebook.com" target="_blank" style="color: #fff;" title="Facebook">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" width="24" />
-        </a>
-        <a href="https://twitter.com" target="_blank" style="color: #fff;" title="Twitter">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter" width="24" />
-        </a>
-        <a href="https://youtube.com" target="_blank" style="color: #fff;" title="YouTube">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" width="24" />
-        </a>
-        <a href="https://linkedin.com" target="_blank" style="color: #fff;" title="LinkedIn">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24" />
-        </a>
-        <a href="https://telegram.org" target="_blank" style="color: #fff;" title="Telegram">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg" alt="Telegram" width="24" />
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #ccc;">
-    &copy; 2025 Safe Haven Health Care. All rights reserved.
-  </div>
-</footer>
+</body>
 </html>
